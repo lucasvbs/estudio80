@@ -159,33 +159,13 @@ function Home() {
         </div>
       </section>
 
-      <section className="services-section" id="solucoes" aria-labelledby="services-heading">
-        <div className="section-heading" data-reveal="left">
-          <p className="eyebrow">Soluções em imagens</p>
-          <h2 id="services-heading">Da produção à <em>preservação.</em></h2>
-          <p>Frentes de trabalho que ajudam instituições a registrar atividades, comunicar projetos e cuidar da própria história.</p>
-        </div>
-        <div className="service-grid">
-          <article className="service-card" data-reveal="up">
-            <span className="service-index">Produções</span>
-            <h3>Registrar e comunicar.</h3>
-            <p>Fotografia institucional e corporativa, cobertura de eventos, produção e captação de vídeos, edição e tratamento de imagens.</p>
-            <ul>
-              <li>Eventos, cerimônias e atividades institucionais</li>
-              <li>Vídeos institucionais, campanhas e projetos especiais</li>
-              <li>Edição e tratamento audiovisual</li>
-            </ul>
-          </article>
-          <article className="service-card" data-reveal="up">
-            <span className="service-index">Memória</span>
-            <h3>Organizar e preservar.</h3>
-            <p>Soluções para transformar materiais físicos e digitais em acervos organizados, pesquisáveis e acessíveis.</p>
-            <ul>
-              <li>Digitalização de documentos, fotografias, negativos e slides</li>
-              <li>Organização, catalogação e indexação de acervos</li>
-              <li>OCR, tratamento e recuperação digital de imagens</li>
-            </ul>
-          </article>
+      <section className="audiovisual-story" id="solucoes" aria-labelledby="audiovisual-heading">
+        <div className="audiovisual-story-copy" data-reveal="left">
+          <h2 id="audiovisual-heading">
+            Histórias contadas<br />
+            através do<br />
+            <em>audiovisual.</em>
+          </h2>
         </div>
       </section>
 
