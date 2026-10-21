@@ -1,0 +1,4 @@
+{
+  "buildCommand": "PORT=3000 BASE_PATH=/ pnpm --filter @workspace/eventos-showcase run build",
+  "outputDirectory": "artifacts/eventos-showcase/dist/public"
+}
