@@ -374,6 +374,18 @@
   font-style: italic;
   font-weight: 400;
 }
+.archive-cover {
+  width: 100%;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+.archive-cover-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1705 / 923;
+  object-fit: cover;
+}
 .afterword {
   position: relative;
   display: grid;

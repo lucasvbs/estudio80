@@ -169,6 +169,21 @@ function Home() {
         </div>
       </section>
 
+      <section
+        className="archive-cover"
+        id="acervos"
+        aria-label="História contada através de acervos a serem preservados"
+      >
+        <img
+          className="archive-cover-image"
+          src="/images/archive-cover.jpg"
+          alt="Soluções em imagens. História contada através de acervos a serem preservados. Digitalização, organização e cuidado com imagens e documentos institucionais."
+          loading="lazy"
+          decoding="async"
+          data-reveal="up"
+        />
+      </section>
+
       <section className="benefits-section" aria-labelledby="benefits-heading">
         <div className="benefits-intro" data-reveal="left">
           <p className="eyebrow">O que fica</p>
