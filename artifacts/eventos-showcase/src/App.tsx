@@ -1,4 +1,5 @@
 import { type ReactNode, useEffect } from 'react';
+import { ArrowUpRight, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -117,7 +118,11 @@ function Home() {
           <a className="brand-lockup" href="#inicio" aria-label="Estúdio 80, início">
             <img className="brand-logo" src="/images/logo-estudio-80-branco.png" alt="" />
           </a>
-          <span className="nav-caption">Produção · Imagem · Memória</span>
+          <div className="nav-links" aria-label="Ir para uma seção">
+            <a className="nav-link" href="#solucoes">Produção</a>
+            <a className="nav-link" href="#fotografias">Imagem</a>
+            <a className="nav-link" href="#acervos">Memória</a>
+          </div>
           <a className="nav-cta" href={whatsAppHref} target="_blank" rel="noreferrer">
             Fale pelo WhatsApp <span aria-hidden="true">↗</span>
           </a>
@@ -138,7 +143,7 @@ function Home() {
 
       <section className="story-intro" id="producoes" aria-labelledby="story-heading">
         <div className="story-copy">
-          <h2 id="story-heading">Histórias contadas<br />através da <em>fotografia.</em></h2>
+          <h2 id="story-heading" data-reveal="up">Histórias contadas<br />através da <em>fotografia.</em></h2>
         </div>
       </section>
 
@@ -160,7 +165,7 @@ function Home() {
       </section>
 
       <section className="audiovisual-story" id="solucoes" aria-labelledby="audiovisual-heading">
-        <div className="audiovisual-story-copy" data-reveal="left">
+        <div className="audiovisual-story-copy" data-reveal="up">
           <h2 id="audiovisual-heading">
             Histórias contadas<br />
             através do<br />
@@ -184,68 +189,52 @@ function Home() {
         />
       </section>
 
-      <section className="benefits-section" aria-labelledby="benefits-heading">
-        <div className="benefits-intro" data-reveal="left">
-          <p className="eyebrow">O que fica</p>
-          <h2 id="benefits-heading">Registros que se tornam <em>acesso.</em></h2>
+      <section className="contact-section" id="contato" aria-labelledby="contact-heading">
+        <div className="contact-visual">
+          <img
+            src="/images/contact-archive.png"
+            alt="Mesa com documentos, fotografias e equipamento de digitalização."
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <div className="benefit-list">
-          <p data-reveal="right"><span>01</span> Eventos e atividades registrados em fotografia e vídeo.</p>
-          <p data-reveal="right"><span>02</span> Imagens e documentos reunidos em acervos digitais organizados.</p>
-          <p data-reveal="right"><span>03</span> Documentos pesquisáveis com reconhecimento de texto por OCR.</p>
-          <p data-reveal="right"><span>04</span> Memória institucional valorizada e mais acessível.</p>
-        </div>
-      </section>
-
-      <section className="faq-section" aria-labelledby="faq-heading">
-        <div className="faq-heading" data-reveal="left">
-          <p className="eyebrow">Perguntas frequentes</p>
-          <h2 id="faq-heading">Sobre as <em>soluções.</em></h2>
-        </div>
-        <div className="faq-list">
-          <article data-reveal="right">
-            <h3>Quais serviços o Estúdio 80 oferece?</h3>
-            <p>Produção fotográfica e audiovisual, digitalização, organização e preservação de acervos de imagens e documentos.</p>
-          </article>
-          <article data-reveal="right">
-            <h3>Que materiais podem ser digitalizados?</h3>
-            <p>Documentos, fotografias, negativos, slides e outros materiais.</p>
-          </article>
-          <article data-reveal="right">
-            <h3>É possível pesquisar o texto de documentos digitalizados?</h3>
-            <p>Sim. O Estúdio 80 oferece reconhecimento de texto por OCR para tornar documentos pesquisáveis.</p>
-          </article>
-          <article data-reveal="right">
-            <h3>Como conversar sobre um projeto?</h3>
-            <p>Entre em contato pelo WhatsApp e conte o que sua instituição precisa produzir, registrar ou preservar.</p>
-          </article>
-          <article data-reveal="right">
-            <h3>Como adicionar o Estúdio 80 à tela inicial do celular?</h3>
-            <p>No iPhone, abra este site no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”. No Android, abra no Chrome e escolha “Instalar app” ou “Adicionar à tela inicial” no menu. O atalho abre o site em uma janela própria; é necessária conexão com a internet.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="afterword" aria-labelledby="afterword-heading">
-        <div className="afterword-copy" data-reveal="left">
-          <p className="eyebrow">A história da sua instituição</p>
-          <h2 id="afterword-heading">Vamos preservar o que <em>importa?</em></h2>
-        </div>
-        <div className="afterword-note" data-reveal="right">
-          <p>Conte ao Estúdio 80 o que sua instituição precisa produzir, registrar ou preservar. A conversa começa pelo seu projeto.</p>
-          <a className="contact-link" href={whatsAppHref} target="_blank" rel="noreferrer">
-            Conversar pelo WhatsApp <span aria-hidden="true">↗</span>
-          </a>
+        <div className="contact-panel">
+          <img
+            className="contact-logo"
+            src="/images/logo-estudio-80-branco.png"
+            alt="Estúdio 80"
+            loading="lazy"
+            decoding="async"
+          />
+          <h2 id="contact-heading" data-reveal="up">Contato</h2>
+          <address className="contact-details" data-reveal="up">
+            <a className="contact-detail" href="mailto:estudio80@estudio80.com.br">
+              <span className="contact-icon" aria-hidden="true"><Mail size={18} strokeWidth={1.6} /></span>
+              <span>estudio80@estudio80.com.br</span>
+            </a>
+            <a className="contact-detail" href="tel:+5561992611547">
+              <span className="contact-icon" aria-hidden="true"><Phone size={18} strokeWidth={1.6} /></span>
+              <span>(61) 99261-1547</span>
+            </a>
+            <p className="contact-detail">
+              <span className="contact-icon" aria-hidden="true"><MapPin size={18} strokeWidth={1.6} /></span>
+              <span>SHCS CL, QD 216, Bloco A, Loja 36, Sobreloja — Asa Sul, Brasília/DF.</span>
+            </p>
+          </address>
+          <div className="contact-actions" data-reveal="up">
+            <a className="contact-button" href={whatsAppHref} target="_blank" rel="noreferrer">
+              <MessageCircle size={18} strokeWidth={1.6} aria-hidden="true" />
+              <span>WhatsApp</span>
+              <ArrowUpRight size={16} strokeWidth={1.6} aria-hidden="true" />
+            </a>
+            <a className="contact-button" href="https://www.instagram.com/estudio.80/" target="_blank" rel="noreferrer">
+              <Instagram size={18} strokeWidth={1.6} aria-hidden="true" />
+              <span>Instagram</span>
+              <ArrowUpRight size={16} strokeWidth={1.6} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </section>
-
-      <footer className="site-footer">
-        <a className="brand-lockup footer-brand" href="#inicio" aria-label="Estúdio 80, início">
-          <img className="brand-logo" src="/images/logo-estudio-80-branco.png" alt="" />
-        </a>
-        <a className="footer-whatsapp" href={whatsAppHref} target="_blank" rel="noreferrer">(61) 99261-1547</a>
-        <span className="footer-meta">Produção audiovisual · Memória institucional</span>
-      </footer>
 
     </main>
   );
