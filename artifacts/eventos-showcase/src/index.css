@@ -452,8 +452,8 @@
   align-items: center;
   gap: 16px;
   color: rgba(255,255,255,.9);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 18px;
+  line-height: 1.5;
   text-decoration: none;
 }
 .contact-detail p { margin: 0; }
@@ -562,7 +562,7 @@
   .contact-logo { width: 170px; }
   .contact-panel h2 { margin: 18px 0 26px; font-size: 62px; }
   .contact-details { gap: 13px; }
-  .contact-detail { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; font-size: 14px; }
+  .contact-detail { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; font-size: 16px; }
   .contact-actions { gap: 9px; margin-top: 36px; padding-top: 0; }
   .contact-button { gap: 7px; min-height: 50px; padding: 0 11px; font-size: 9px; letter-spacing: .08em; }
 }
