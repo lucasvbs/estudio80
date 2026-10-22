@@ -75,20 +75,16 @@ function Home() {
       const position = progress * (images.length - 1);
 
       images.forEach((image, index) => {
-        const enter = index === 0
+        const reveal = index === 0
           ? 1
-          : smoothstep(index - 0.28, index - 0.02, position);
-        const leave = index === images.length - 1
-          ? 1
-          : 1 - smoothstep(index + 0.72, index + 0.98, position);
-        const opacity = Math.min(enter, leave);
-        const depth = clamp((position - index + 1) / 2, 0, 1);
-        const scale = 1.06 + depth * 0.07;
-        const verticalShift = 3 - depth * 6;
+          : smoothstep(index - 0.45, index, position);
+        const depth = clamp(position - index, 0, 1);
+        const scale = 1.025 + (1 - reveal) * 0.025 + depth * 0.015;
+        const verticalShift = (1 - reveal) * 1.2;
+        const clippedTop = (1 - reveal) * 100;
 
-        image.style.opacity = String(opacity);
+        image.style.clipPath = `inset(${clippedTop}% 0 0 0)`;
         image.style.transform = `translate3d(0, ${verticalShift}%, 0) scale(${scale})`;
-        image.setAttribute('aria-hidden', opacity < 0.15 ? 'true' : 'false');
       });
     };
 
@@ -118,13 +114,9 @@ function Home() {
           <a className="brand-lockup" href="#inicio" aria-label="Estúdio 80, início">
             <img className="brand-logo" src="/images/logo-estudio-80-branco.png" alt="" />
           </a>
-          <div className="nav-links" aria-label="Ir para uma seção">
-            <a className="nav-link" href="#solucoes">Produção</a>
-            <a className="nav-link" href="#fotografias">Imagem</a>
-            <a className="nav-link" href="#acervos">Memória</a>
-          </div>
           <a className="nav-cta" href={whatsAppHref} target="_blank" rel="noreferrer">
-            Fale pelo WhatsApp <span aria-hidden="true">↗</span>
+            <MessageCircle size={16} strokeWidth={2.2} aria-hidden="true" />
+            <span>Fale pelo WhatsApp</span>
           </a>
         </nav>
         <div className="hero-copy" id="inicio">
@@ -156,8 +148,9 @@ function Home() {
               alt={photo.alt}
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
-              style={{ opacity: index === 0 ? 1 : 0 }}
-              aria-hidden={index !== 0}
+              style={{
+                clipPath: index === 0 ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)',
+              }}
               key={photo.src}
             />
           ))}
@@ -190,14 +183,6 @@ function Home() {
       </section>
 
       <section className="contact-section" id="contato" aria-labelledby="contact-heading">
-        <div className="contact-visual">
-          <img
-            src="/images/contact-archive.png"
-            alt="Mesa com documentos, fotografias e equipamento de digitalização."
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
         <div className="contact-panel">
           <img
             className="contact-logo"

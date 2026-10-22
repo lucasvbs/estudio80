@@ -156,8 +156,8 @@
 }
 .brand-logo {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 .eyebrow, .card-index, .hero-meta, .footer-meta {
@@ -181,17 +181,24 @@
 .nav-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
+  padding: 12px 17px;
+  border: 1px solid #25d366;
+  border-radius: 4px;
   color: #ffffff;
+  background: #25d366;
   text-decoration: none;
   font-size: 12px;
-  transition: color .25s ease;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
 }
-.nav-cta:hover { color: #c8d9e3; }
-.nav-cta span { color: var(--highlight); font-size: 18px; }
+.nav-cta:hover {
+  background: #1da851;
+  border-color: #1da851;
+  transform: translateY(-2px);
+}
 .hero-copy {
   position: absolute;
-  top: 17%;
+  top: 53%;
   left: clamp(26px, 7.5vw, 112px);
   width: min(900px, 86vw);
   color: #ffffff;
@@ -338,7 +345,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  will-change: opacity, transform;
+  will-change: clip-path, transform;
 }
 .audiovisual-story {
   position: relative;
@@ -399,38 +406,27 @@
   object-fit: cover;
 }
 .contact-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   min-height: 100vh;
   min-height: 100svh;
   background: var(--ink);
   color: #ffffff;
-}
-.contact-visual {
-  min-height: 100%;
-  overflow: hidden;
-  background: #101c25;
-}
-.contact-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 .contact-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   padding: clamp(38px, 5vw, 76px) clamp(28px, 6vw, 88px);
   background: #19364a;
 }
 .contact-logo {
   display: block;
-  width: clamp(104px, 10vw, 150px);
+  width: clamp(180px, 16vw, 220px);
   aspect-ratio: 1;
   object-fit: contain;
 }
@@ -525,19 +521,13 @@
   .hero-nav {
     display: grid;
     grid-template-columns: 1fr auto;
-    row-gap: 12px;
+    column-gap: 12px;
     padding: 18px 23px;
   }
-  .nav-links {
-    grid-column: 1 / -1;
-    justify-content: center;
-    gap: clamp(22px, 8vw, 34px);
-    padding-bottom: 4px;
-  }
-  .nav-link { font-size: 12px; }
-  .brand-logo { width: 88px; height: 88px; }
-  .nav-cta { gap: 6px; font-size: 10px; }
-  .hero-copy { top: 24%; left: 25px; width: calc(100% - 50px); }
+  .brand-logo { width: 104px; height: 104px; }
+  .nav-cta { gap: 6px; padding: 10px 12px; font-size: 10px; }
+  .nav-cta svg { width: 14px; height: 14px; }
+  .hero-copy { top: 51%; left: 25px; width: calc(100% - 50px); }
   .hero h1 { font-size: clamp(30px, 8vw, 36px); line-height: .96; }
   .hero-bottom { left: 25px; right: 25px; bottom: 24px; }
   .hero-meta { max-width: calc(100% - 52px); font-size: 8px; letter-spacing: .12em; }
@@ -567,10 +557,9 @@
       linear-gradient(0deg, rgba(14, 39, 56, .34), transparent 54%);
   }
   .audiovisual-story h2 { max-width: 430px; font-size: clamp(42px, 10vw, 56px); }
-  .contact-section { grid-template-columns: 1fr; min-height: 0; }
-  .contact-visual { height: min(58svh, 480px); min-height: 320px; }
-  .contact-panel { min-height: 680px; padding: 46px 25px 32px; }
-  .contact-logo { width: 112px; }
+  .contact-section { min-height: 100svh; }
+  .contact-panel { min-height: 100svh; padding: 42px 25px 32px; }
+  .contact-logo { width: 170px; }
   .contact-panel h2 { margin: 18px 0 26px; font-size: 62px; }
   .contact-details { gap: 13px; }
   .contact-detail { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; font-size: 14px; }
@@ -592,7 +581,7 @@
     inset: auto;
     height: 100vh;
     height: 100svh;
-    opacity: 1 !important;
+    clip-path: none !important;
     transform: none !important;
     will-change: auto;
   }
