@@ -80,10 +80,8 @@ function Home() {
           : smoothstep(index - 0.45, index, position);
         const depth = clamp(position - index, 0, 1);
         const scale = 1.025 + (1 - reveal) * 0.025 + depth * 0.015;
-        const verticalShift = (1 - reveal) * 1.2;
-        const clippedTop = (1 - reveal) * 100;
+        const verticalShift = (1 - reveal) * 100;
 
-        image.style.clipPath = `inset(${clippedTop}% 0 0 0)`;
         image.style.transform = `translate3d(0, ${verticalShift}%, 0) scale(${scale})`;
       });
     };
@@ -121,23 +119,21 @@ function Home() {
         </nav>
         <div className="hero-copy" id="inicio">
           <h1 id="hero-title">
-            <span>CONTAR UMA</span>
-            <span>HISTÓRIA <em>QUE FIQUE</em></span>
-            <span><em>NA MEMÓRIA,</em></span>
-            <span>SOMOS OS MELHORES NISSO.</span>
+            <span>Contar uma história que fique na memória.</span>
+            <span>Somos os melhores nisso.</span>
           </h1>
+          <div className="hero-services" aria-label="Nossos serviços">
+            <span>PRODUÇÕES</span>
+            <span>EVENTOS</span>
+            <span>DIGITALIZAÇÃO</span>
+          </div>
         </div>
         <div className="hero-bottom">
-          <span className="hero-meta">Produções audiovisuais — Eventos — Digitalização.</span>
           <a className="scroll-cue" href="#producoes">Role para conhecer <i aria-hidden="true">↓</i></a>
         </div>
       </section>
 
-      <section className="story-intro" id="producoes" aria-labelledby="story-heading">
-        <div className="story-copy">
-          <h2 id="story-heading" data-reveal="up">Histórias contadas<br />através da <em>fotografia.</em></h2>
-        </div>
-      </section>
+      <section className="story-intro" id="producoes" aria-label="Fotografia institucional" />
 
       <section className="photo-story" id="fotografias" aria-label="Sequência fotográfica institucional">
         <div className="photo-story-stage">
@@ -149,7 +145,9 @@ function Home() {
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
               style={{
-                clipPath: index === 0 ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)',
+                transform: index === 0
+                  ? 'scale(1.025)'
+                  : 'translate3d(0, 100%, 0) scale(1.05)',
               }}
               key={photo.src}
             />
@@ -174,7 +172,7 @@ function Home() {
       >
         <img
           className="archive-cover-image"
-          src="/images/archive-cover.jpg"
+          src="/images/archive-cover.png"
           alt="Soluções em imagens. História contada através de acervos a serem preservados. Digitalização, organização e cuidado com imagens e documentos institucionais."
           loading="lazy"
           decoding="async"
